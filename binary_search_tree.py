@@ -72,7 +72,7 @@ class bst:
       elif node.left and node.right:
         self._delete_two_children(node)
       else:
-        self._delete_one_child(parent, node)
+        self._delete_one_child(parent, node) 
 
   def _find_inorder_successor(self, node):
     parent = None
