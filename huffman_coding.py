@@ -72,7 +72,7 @@ def decode_string(encoded, codes):
 print(huffman_coding("hello world"))
 print(decode_string("11100001010110111101111001010001", huffman_codes(build_huffman_tree(string_to_frequency_dict("hello world")))))"""
 
-class HuffmanCoding:
+class HuffmanString:
     def __init__(self, string):
         self.string = string
         self.frequency = self.string_to_frequency_dict()
@@ -119,6 +119,9 @@ class HuffmanCoding:
             encoded += self.codes[char]
         return encoded
 
+    def __str__(self):
+        return self.encoded_string
+
 def decode_string(encoded, codes):
     reverse_codes = {v: k for k, v in codes.items()}
     decoded = ""
@@ -130,8 +133,8 @@ def decode_string(encoded, codes):
             current_code = ""
     return decoded
 
-hoffman = HuffmanCoding("hello world")
-print("Huffman Codes:", hoffman.codes)
-print("Encoded String:", hoffman.encoded_string)
-print("Decoded String:", decode_string(hoffman.encoded_string, hoffman.codes))
+taran_huffman_str = HuffmanString("Taran the goat")
+print("Huffman Codes:", taran_huffman_str.codes)
+print("Encoded String:", taran_huffman_str)
+print("Decoded String:", decode_string(taran_huffman_str.encoded_string, taran_huffman_str.codes))
 
