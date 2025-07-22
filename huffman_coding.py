@@ -104,6 +104,8 @@ class HuffmanString:
         return heap[0]
 
     def huffman_codes(self, node=None, code="", codebook={}):
+        if codebook is None:
+            codebook = {}
         if node is None:
             node = self.root
         if node.char is not None:
@@ -133,8 +135,12 @@ def decode_string(encoded, codes):
             current_code = ""
     return decoded
 
-taran_huffman_str = HuffmanString("Taran the goat")
+taran_huffman_str = HuffmanString("Taran")
 print("Huffman Codes:", taran_huffman_str.codes)
 print("Encoded String:", taran_huffman_str)
 print("Decoded String:", decode_string(taran_huffman_str.encoded_string, taran_huffman_str.codes))
 
+hello_huffman_str = HuffmanString("Hello")
+print("Huffman Codes:", hello_huffman_str.codes)
+print("Encoded String:", hello_huffman_str)
+print("Decoded String:", decode_string(hello_huffman_str.encoded_string, hello_huffman_str.codes))
